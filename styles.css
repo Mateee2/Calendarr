@@ -1,0 +1,189 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Calendar Container */
+#calendar-container {
+    max-width: 90%;
+    width: 700px;
+    background-color: var(--primary-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+header #month-year {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#toggle-theme {
+    font-size: 20px;
+}
+
+/* Table Styles */
+#calendar {
+    width: 100%;
+    table-layout: fixed; /* Ensures columns have equal width */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#calendar th,
+#calendar td {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+/* Ensure equal cell sizes and responsiveness */
+#calendar th {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    border-radius: 10px;
+}
+
+#calendar td {
+    background-color: var(--cell-bg);
+    border-radius: 5px;
+}
+
+#calendar td.today {
+    background-color: var(--today-bg);
+    color: white;
+    font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    #calendar-container {
+        width: 100%; /* Make calendar container take full width */
+        padding: 15px;
+    }
+
+    #calendar th,
+    #calendar td {
+        font-size: 14px; /* Smaller font on mobile */
+        padding: 8px; /* Reduce padding */
+    }
+}
+
+/* Theme and Button Styles */
+#prev-month,
+#next-month,
+#toggle-theme {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#toggle-theme {
+    font-size: 20px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#footer:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+/* Light/Dark Mode Styles */
+[data-theme="dark"] {
+    --bg-gradient: #121212;
+    --primary-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --header-bg: #333333;
+    --header-text: #ffffff;
+    --cell-bg: #444444;
+    --today-bg: #f2a900;
+    --border-color: #555555;
+}
+
+[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #a3c2f2, #f5a9a9);
+    --primary-bg: #ffffff;
+    --text-color: #000000;
+    --header-bg: #f4f4f4;
+    --header-text: #000000;
+    --cell-bg: #fafafa;
+    --today-bg: #ffeb3b;
+    --border-color: #e1e1e1;
+}
+
+/* Smooth Hover Effect */
+#calendar td:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    background-color: var(--hover-bg);
+}
+
+/* Box Shadows for Buttons */
+header button,
+#toggle-theme {
+    transition: all 0.3s ease;
+}
+
+header button:hover,
+#toggle-theme:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#calendar-container {
+    animation: fadeIn 1s ease-in-out;
+}
